@@ -7,7 +7,7 @@ import os
 import torch
 from tldextract import tldextract
 import cv2
-from configs import load_config, load_quantized_config
+from configs import load_config #, load_quantized_config
 from logo_recog import pred_rcnn, vis
 from logo_matching import check_domain_brand_inconsistency
 # from text_recog import check_email_credential_taking
@@ -160,8 +160,8 @@ if __name__ == '__main__':
         if not os.path.exists(html_path):
             html_path = os.path.join(request_dir, folder, "index.html")
 
-        # url = eval(open(info_path).read())['url']
-        url = open(info_path).read()
+        url = eval(open(info_path).read())['url']
+        # url = open(info_path).read()
 
         if os.path.exists(result_txt) and url in open(result_txt, encoding='ISO-8859-1').read():
             continue
